@@ -1,0 +1,40 @@
+@import './_mixins/clearfix';
+@import './_mixins/fill-box';
+@import './_mixins/flex-center';
+@import './_mixins/focus';
+@import './_mixins/input';
+@import './_mixins/linker';
+@import './_mixins/list-unstyled';
+@import './variables';
+@import './container';
+@import './float';
+@import './grid';
+
+@import '~@textbus/editor/assets/index';
+@import '~@textbus/editor/assets/icons/style.css';
+
+// @import "./v1-doc";
+@import './v2-doc';
+@import './icon-font.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  //background: aliceblue;
+  background: #fff;
+  font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  height: 100%;
+  color: #333;
+  font-size: 16px;
+}
+
+html {
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+  background-color: #f5f5f5;
+}
