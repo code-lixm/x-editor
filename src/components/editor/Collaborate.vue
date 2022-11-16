@@ -157,7 +157,7 @@ onMounted(() => {
         },
       });
 
-      const ws = `ws://43.142.30.34:9999`;
+      const ws = `wss://blog.bilent.top:9999/api/`;
       const provide = new WebsocketProvider(ws, 'collaboration', collaborate.yDoc);
 
       const firstNameArray = '一、二、三、四、五、六、七、八、九、十'.split('、');
