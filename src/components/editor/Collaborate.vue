@@ -16,9 +16,7 @@ import {
   Editor,
   LinkJumpTipPlugin,
   Toolbar,
-  defaultTools,
   TableComponentSelectionAwarenessDelegate,
-  Layout,
   boldTool,
   cleanTool,
   colorTool,
@@ -29,8 +27,6 @@ import {
   historyBackTool,
   historyForwardTool,
   imageTool,
-  insertParagraphAfterTool,
-  insertParagraphBeforeTool,
   italicTool,
   linkTool,
   olTool,
@@ -410,7 +406,6 @@ onUnmounted(() => {
   li {
     position: relative;
     padding: 3px 0;
-
     &.active {
       a {
         color: $color-primary;
@@ -691,6 +686,30 @@ onUnmounted(() => {
 
   span {
     color: $color-danger;
+  }
+}
+</style>
+<style lang="scss">
+.textbus-contextmenu {
+  .textbus-contextmenu-item {
+    .textbus-icon-table-remove {
+      transform: scale(0.9);
+      display: block;
+      position: relative;
+      top: 4px;
+    }
+    .textbus-icon-select {
+      position: relative;
+      top: 2px;
+    }
+    .textbus-icon-insert-paragraph-before {
+      position: relative;
+      top: 2px;
+    }
+    .textbus-icon-insert-paragraph-after {
+      position: relative;
+      top: 2px;
+    }
   }
 }
 </style>

@@ -40,13 +40,11 @@
 // }
 .textbus-icon-insert-paragraph-before {
   display: inline-block;
-  vertical-align: middle;
   font-family: 'textbus' !important;
   transform: scale(0.9);
 }
 .textbus-icon-insert-paragraph-after {
   display: inline-block;
-  vertical-align: middle;
   font-family: 'textbus' !important;
   transform: scale(0.9);
 }
@@ -57,7 +55,34 @@
 
 .textbus-icon-select {
   font-family: 'textbus' !important;
-  transform: scale(0.9);
+}
+
+.textbus-icon-table-add-column-left {
+  font-family: 'textbus' !important;
+}
+
+.textbus-icon-table-add-column-right {
+  font-family: 'textbus' !important;
+}
+
+.textbus-icon-table-add-row-top {
+  font-family: 'textbus' !important;
+}
+
+.textbus-icon-table-add-row-bottom {
+  font-family: 'textbus' !important;
+}
+
+.textbus-icon-table-delete-column-left {
+  font-family: 'textbus' !important;
+}
+
+.textbus-icon-table-delete-row-top {
+  font-family: 'textbus' !important;
+}
+
+.textbus-icon-table-split-columns {
+  font-family: 'textbus' !important;
 }
 
 .data-icon-centered-image:before {
