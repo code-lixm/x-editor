@@ -54,6 +54,8 @@ import { WebsocketProvider } from 'y-websocket';
 import { fromEvent } from '@tanbo/stream';
 import { Caret, CaretLimit } from '@textbus/browser';
 
+import { i18nZhCN } from './config';
+
 interface Header {
   component: ComponentInstance;
   highlight: boolean;
@@ -122,12 +124,11 @@ const toHeading = (item: Header) => {
 onMounted(() => {
   editor = createEditor({
     theme: 'light',
-    autoHeight: true,
     autoFocus: true,
     zenCoding: true,
     historyStackSize: 30,
-    minHeight: 'calc(100vh - 108px)',
     placeholder: '请输入',
+    i18n: i18nZhCN,
     imports: [collaborateModule],
     providers: [
       {
@@ -156,13 +157,9 @@ onMounted(() => {
       const ws = `wss://blog.bilent.top:9999/api/`;
       const provide = new WebsocketProvider(ws, 'collaboration', collaborate.yDoc);
 
-      const firstNameArray = '一、二、三、四、五、六、七、八、九、十'.split('、');
-      const lastNameArray = '赵、钱、孙、李、周、吴、郑、王'.split('、');
+      const nanoId = ~~(Math.random() * 1000000);
 
-      const firstName = firstNameArray[~~[Math.random() * firstNameArray.length]];
-      const lastName = lastNameArray[~~[Math.random() * firstNameArray.length]];
-
-      const username = lastName + firstName;
+      const username = '游客-' + nanoId;
       const colors = [
         '#47A1FF',
         '#59CB74',
@@ -627,14 +624,13 @@ onUnmounted(() => {
 }
 
 .editor-bg {
-  height: calc(100% - 46px);
-  overflow: auto;
+  height: calc(100% - 40px);
 }
 
 .editor-container {
   padding-top: 30px;
-  padding-bottom: 30px;
   display: flex;
+  height: calc(100vh - 40px);
 }
 
 .left {
@@ -658,6 +654,7 @@ onUnmounted(() => {
 
 :deep {
   .textbus-container {
+    height: calc(100vh - 100px);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
 
@@ -675,7 +672,7 @@ onUnmounted(() => {
   }
 
   [textbus-document] {
-    padding: 20px 40px !important;
+    padding: 20px !important;
   }
 }
 
@@ -725,5 +722,11 @@ onUnmounted(() => {
       list-style: inherit;
     }
   }
+}
+.tb-code-line::before {
+  box-sizing: content-box;
+}
+.tb-jumbotron-setting {
+  padding: 3px 2px;
 }
 </style>

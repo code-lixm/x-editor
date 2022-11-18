@@ -5,9 +5,13 @@ const locale = zhCn;
 </script>
 
 <template>
-  <div>
-    <el-config-provider :locale="locale">
-      <router-view></router-view>
-    </el-config-provider>
-  </div>
+  <el-config-provider :locale="locale">
+    <router-view></router-view>
+  </el-config-provider>
 </template>
+<style lang="scss">
+#app {
+  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif,
+    'Segoe UI';
+}
+</style>
