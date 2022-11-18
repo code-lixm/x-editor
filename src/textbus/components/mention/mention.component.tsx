@@ -6,27 +6,29 @@ import {
   onContentInsert,
   Selection,
   Slot,
+  SlotRender,
   useContext,
   useSelf,
   useSlots,
+  VElement,
 } from '@textbus/core';
 import { ComponentLoader, SlotParser } from '@textbus/browser';
 import { Injector } from '@tanbo/di';
 
-export interface AtComponentOption {
+export interface MentionComponentOption {
   id: string;
   username: string;
 }
 
-export const atComponent = defineComponent({
+export const mentionComponent = defineComponent({
   type: ContentType.InlineComponent,
-  name: 'AtComponent',
+  name: 'MentionComponent',
   setup(initData?: ComponentInitData<void>) {
     const slots = useSlots(initData?.slots || [new Slot([ContentType.Text])]);
 
     const self = useSelf();
 
-    let options: AtComponentOption[] = [];
+    let options: MentionComponentOption[] = [];
 
     const injector = useContext();
 
@@ -51,9 +53,9 @@ export const atComponent = defineComponent({
     });
 
     return {
-      render(isOutputMode: boolean, slotRender) {
+      render(isOutputMode: boolean, slotRender: SlotRender): VElement {
         return (
-          <span component-name="AtComponent">
+          <span component-name="MentionComponent">
             @
             {slotRender(slots.get(0)!, () => {
               return <span />;
@@ -98,10 +100,10 @@ export const atComponent = defineComponent({
 
 export const atComponentLoader: ComponentLoader = {
   match(element: HTMLElement): boolean {
-    return element.tagName === 'SPAN' && element.getAttribute('component-name') === 'AtComponent';
+    return element.tagName === 'SPAN' && element.getAttribute('component-name') === 'MentionComponent';
   },
   read(element: HTMLElement, context: Injector, slotParser: SlotParser): ComponentInstance {
-    return atComponent.createInstance(context, {
+    return mentionComponent.createInstance(context, {
       slots: [slotParser(new Slot([ContentType.Text]), element.children[0] as HTMLElement)],
     });
   },

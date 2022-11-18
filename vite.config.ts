@@ -15,10 +15,6 @@ export default defineConfig((env) => {
     resolve: {
       alias: [
         {
-          find: '~@tanbo/color-picker/bundles/scss/index',
-          replacement: resolve(__dirname, './node_modules/@tanbo/color-picker/bundles/scss/index.scss'),
-        },
-        {
           find: '@',
           replacement: resolve(__dirname, './src'),
         },

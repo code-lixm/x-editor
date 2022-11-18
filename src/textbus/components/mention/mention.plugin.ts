@@ -1,8 +1,8 @@
 import { Injector } from '@tanbo/di';
 import { Commander, ContentType, Keyboard, Selection, Plugin } from '@textbus/core';
-import { atComponent } from './mention.component';
+import { mentionComponent } from './mention.component';
 
-export class AtPlugin implements Plugin {
+export class MentionPlugin implements Plugin {
   setup(injector: Injector) {
     const keyboard = injector.get(Keyboard);
     const selection = injector.get(Selection);
@@ -15,7 +15,7 @@ export class AtPlugin implements Plugin {
       },
       action() {
         if (selection.commonAncestorSlot!.schema.includes(ContentType.InlineComponent)) {
-          const component = atComponent.createInstance(injector);
+          const component = mentionComponent.createInstance(injector);
           commander.insert(component);
           selection.setPosition(component.slots.get(0)!, 0);
         }
